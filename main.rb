@@ -17,12 +17,10 @@ end
 
 get '/jobs/:id' do
   @job = Job.find(params[:id])
-  # raise @job.inspect
   erb :show_job
 end
 
 post '/jobs' do
-  # raise params.inspect
   @job = Job.create(company_name: params[:company_name], job_title: params[:job_title], about_company: params[:about_company], about_job: params[:about_job], location: params[:location])
   redirect "/jobs/#{@job.id}"
 end
