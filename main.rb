@@ -6,7 +6,6 @@ require 'pg'
 require_relative 'db_config'
 require_relative 'models/job'
 
-
 get '/' do
   erb :index
 end
@@ -37,10 +36,10 @@ end
 
 # show the updated job list
 put '/jobs/:id' do
-  
-@job = Job.find(company_name: params[:company_name], job_title: params[:job_title], about_company: params[:about_company], about_job: params[:about_job], location: params[:location])
+@job = Job.find(params[:id])
 
-@job.update
+@job.update(company_name: params[:company_name], job_title: params[:job_title], about_company: params[:about_company], about_job: params[:about_job], location: params[:location])
+
 redirect "/jobs/#{params[:id]}"
 end
 
