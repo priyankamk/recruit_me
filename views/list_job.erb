@@ -9,7 +9,9 @@
   <tbody>
     <% @jobs.each do |job| %>
     <tr>
-      <td> <%= job.company_name %> </td>
+      <td> 
+        <a href="/jobs/<%= job.id %>"><%= job.company_name %> </a>
+      </td>
       <td> <%= job.job_title %> </td>
       <td> <%= job.location %> </td>
     </tr>
