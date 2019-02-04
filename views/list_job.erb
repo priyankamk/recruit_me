@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead class="thead-dark"> 
+    <tr>
+      <th>Company Name</th>
+      <th>Job Title</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+    <tr>
+      <td> <%= job.company_name %> </td>
+      <td> <%= job.job_title %> </td>
+      <td> <%= job.location %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

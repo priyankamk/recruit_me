@@ -11,6 +11,11 @@ get '/' do
   erb :index
 end
 
+get '/jobs' do
+  @jobs = Job.all
+  erb :list_job
+end
+
 get '/jobs/new' do
   erb :new_job
 end

@@ -5,4 +5,4 @@ options = {
     database: 'recruitme'
   }
   
-  ActiveRecord::Base.establish_connection(options)
+ActiveRecord::Base.establish_connection(options)
