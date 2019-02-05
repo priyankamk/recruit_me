@@ -1,0 +1,18 @@
+<h1>Profile</h1>
+
+<h1><%= @candidate.name%></h1>
+<h3>Personal Summary <%= @candidate.summary %></h3>
+<br>
+<h4>Career History</h4>
+<p><%= @candidate.career_history %></p>
+<h4>Education</h4>
+<p><%= @candidate.education %></p>
+<h4>Skills</h4>
+<p><%= @candidate.skills %></p>
+
+<a href="/jobs/<%= @job.id %>/edit" class="btn btn-outline-primary">Edit</a>
+
+<form action="/jobs/<%= @job.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button class="btn btn-outline-danger">Delete</button>
+</form>

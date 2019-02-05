@@ -3,20 +3,26 @@ require 'active_record'
 require 'sinatra/reloader'
 require 'pry' 
 require 'pg'
+
 require_relative 'db_config'
 require_relative 'models/job'
+require_relative 'models/candidate'
 
 get '/' do
   erb :index
 end
 
-get '/jobs' do
-  @jobs = Job.all
-  erb :list_job
-end
+# get '/home' do
+#   erb :home
+# end
 
 get '/jobs/new' do
   erb :new_job
+end
+
+get '/jobs' do
+  @jobs = Job.all
+  erb :list_job
 end
 
 get '/jobs/:id' do
@@ -51,3 +57,34 @@ delete '/jobs/:id' do
   redirect '/jobs'
 end
 
+# #
+# create a link tht opens the page for update resume.
+get '/home' do 
+ erb :home
+end
+
+get '/candidates/new' do
+  erb :new_candidate
+end
+
+get '/candidates' do
+  @candidate = Candidate.all
+  erb :show_candidate_profile
+end
+get '/candidates/:id' do
+  @candidate = Candidate.find(params[:id])
+  erb :show_candidate_profile
+end
+
+
+
+post '/candidates' do
+  candidate = Candidate.new
+  candidate.name = params[:name]
+  candidate.summary = params[:summary]
+  candidate.career_history = params[:career_history]
+  candidate.education = params[:education]
+  candidate.skills = params[:skills]
+  candidate.save
+  redirect "/candidates/#{@candidate.id}"
+end
