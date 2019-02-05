@@ -69,14 +69,13 @@ end
 
 get '/candidates' do
   @candidate = Candidate.all
-  erb :show_candidate_profile
+  erb :list_candidate
 end
+
 get '/candidates/:id' do
   @candidate = Candidate.find(params[:id])
   erb :show_candidate_profile
 end
-
-
 
 post '/candidates' do
   candidate = Candidate.new
