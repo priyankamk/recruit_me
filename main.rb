@@ -78,12 +78,25 @@ get '/candidates/:id' do
 end
 
 post '/candidates' do
-  candidate = Candidate.new
-  candidate.name = params[:name]
-  candidate.summary = params[:summary]
-  candidate.career_history = params[:career_history]
-  candidate.education = params[:education]
-  candidate.skills = params[:skills]
-  candidate.save
+  @candidate = Candidate.create(name: params[:name], summary: params[:summary], career_history: params[:career_history], education: params[:education], skills: params[:skills])
+  
+  @candidate.save
   redirect "/candidates/#{@candidate.id}"
 end
+
+get '/candidates/:id/edit' do
+  @candidate = Candidate.find(params[:id])
+  erb :edit_candidate
+end
+
+# show the updated candidate list
+put '/candidates/:id' do
+  @candidate = Candidate.find(params[:id])
+  
+  @candidate.update(name: params[:name], summary: params[:summary], career_history: params[:career_history], education: params[:education], skills: params[:skills])
+  @candidate.save
+  
+  redirect "/candidates/#{params[:id]}"
+  
+  end
+  
