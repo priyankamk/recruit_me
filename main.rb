@@ -153,3 +153,9 @@ delete '/session' do
   session[:employer_id] = nil
   redirect '/login'
 end
+
+get '/jobsearch' do
+  @job = Job.where(job_title: params[:job_title], location: params[:location])
+
+  erb :job_search
+end
