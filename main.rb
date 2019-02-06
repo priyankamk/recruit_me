@@ -51,7 +51,6 @@ get '/about' do
 end
 
 get '/jobs/new' do
-  binding.pry
   if current_role != "employer"
     status 403 # block access if employer hasn't logged in.
   else
@@ -145,6 +144,8 @@ delete '/candidates/:id' do
 end
 
 get '/login' do
+  redirect '/' if current_user
+  
   erb :login
 end
 
@@ -174,6 +175,7 @@ post '/session' do
 end
 
 get '/session' do
-  session[:employer_id] = nil
+  session[:user_id] = nil
+  session[:role] = nil
   redirect '/login'
 end

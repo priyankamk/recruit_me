@@ -20,7 +20,7 @@
         <a href="/home">Post Resume</a>
         <a href="/candidates/new">Create Profile</a>
       <% end %>
-      <% if !current_user %>
+      <% if current_user.nil? %>
         <a href="/login">Login</a>
       <% else %>
         <a href="/session">Logout</a>
