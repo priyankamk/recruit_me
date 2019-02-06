@@ -8,6 +8,23 @@ require_relative 'db_config'
 require_relative 'models/job'
 require_relative 'models/candidate'
 
+# to enable random string - when the user loginIn
+enable :sessions # sinatra dealing with storing the session for you
+
+helpers do
+  def current_user
+    User.find_by(id: session[:employer_id])
+  end
+
+  def logged_in? # predicate method boolean
+    if current_user
+      true
+    else
+      false
+    end
+  end
+end
+
 get '/' do
   erb :index
 end
@@ -100,5 +117,38 @@ put '/candidates/:id' do
   
   redirect "/candidates/#{params[:id]}"
   
+end
+
+delete '/candidates/:id' do
+  @candidate = Candidate.find(params[:id])
+  @candidate.destroy
+  redirect '/candidates/new'
+end
+
+get '/login' do
+  erb :login
+end
+
+post '/session' do
+  # check email first
+  employer = Employer.find_by(email: params[:email])
+  if employer && employer.authenticate(params[:password])
+    # success
+    # create the session - adding items to the session variable - it is hash
+    # adding key value pair
+    
+    session[:employer_id] = employer.id
+
+    # redirect to secure place
+    redirect '/jobs'
+  else
+    # kick them out
+    # show the login form becus pw or email wrong
+    erb :login
   end
-  
+end
+
+delete '/session' do
+  session[:employer_id] = nil
+  redirect '/login'
+end
