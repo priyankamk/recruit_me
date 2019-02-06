@@ -6,19 +6,30 @@
   <%# <link rel='stylesheet' href='/stylesheets/main.css'> %>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
+<div class="container">
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+    <img src="https://recruitme.rumii.co/wp-content/uploads/2016/07/Recruit-Me-Final-Logo-1-1.png" width="150" height="30" alt="">
+    </a>
+    <a href="/">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/jobs">Current Openings</a>
+    <a href="/jobs/new">Post a Job</a>
+    <a href="/candidates">List of all candidates</a>
+    <a href="/home">Post Resume</a>
+    <a href="/candidates/new">Create Profile</a>
+  </nav>
+</div>
   <body>
     <div class="container">
-     <h1>Recruit Me</h1>
-      <a href="/">Home</a>
-      <a href="/about">About Us</a>
-      <a href="/jobs">Current Openings</a>
-      <a href="/jobs/new">Post a Job</a>
-      <a href="/candidates">List of all candidates</a>
-      <a href="/home">Post Resume</a>
-      <a href="/candidates/new">Create Profile</a>
-      <a href="/candidates/:id">Edit Profile</a>
+    
+     <%# <h1>Recruit Me</h1> %>
+     
+  
       <%= yield %>
+    
     </div>
     <footer class="blockquote-footer text-center" >&copy; By Priyanka</footer>
+    
   </body>
 </html>
