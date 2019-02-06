@@ -1,9 +1,10 @@
+<br>
 <h1>Job Search</h1>
 
 <form action="/jobsearch" method="get">
 
   <label for="">What</label>
-  <input type="text" name="job_title" placeholder="Enter keywords" 
+  <input type="text" name="company_name" placeholder="Enter keywords" 
   >
 
   <label for="">Where</label>
@@ -13,5 +14,15 @@
 </form>
 
 
+<% @jobs.each do |job| %>
+<br>
+  <h5> <a href="/jobs/<%= job.id %>"> <%= job.company_name %> </a> </h5>
+  <%# <h5> <a href="/"> <%= job.job_title %>  
+  <%# </a> </h5> %>
+  <h5> <%= job.location %> </h5>
+<% end %>
+
 <%# value="<%= @job.job_title %>
 <%# value="<%= @job.location %>
+
+

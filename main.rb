@@ -155,7 +155,10 @@ delete '/session' do
 end
 
 get '/jobsearch' do
-  @job = Job.where(job_title: params[:job_title], location: params[:location])
+  @jobs = Job.where(company_name: params[:company_name]).or(Job.where(location: params[:location]))
 
+  # @job = Job.find(params[:id])
   erb :job_search
 end
+
+# get '/filtersearch' 
