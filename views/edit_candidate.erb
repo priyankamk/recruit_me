@@ -1,32 +1,29 @@
-
-<h1 class="display-4">Proflie Detail</h1>
-
-<form action="/candidates/<%= @candidate.id %>" method="post">
- <input type="hidden" name="_method" value="put">
-
+<div class="jumbotron">
+  <h1 class="display-4">Proflie Detail</h1>
+  <form action="/candidates/<%= @candidate.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
     <div class="form-group">
-        <h4><label for="">Full Name:</label></h4>
-        <input type="text" class="form-control" name="name" value="<%= @candidate.name %>">
+      <h4><label for="">Full Name:</label></h4>
+      <input type="text" class="form-control" name="name" value="<%= @candidate.name %>">
     </div>
     <div class="form-group">
-        <h4><label for="">Personal Summary:</label></h4>
-        <textarea type="text" class="form-control" name="summary">
+      <h4><label for="">Personal Summary:</label></h4>
+      <textarea type="text" class="form-control" name="summary">
             <%= @candidate.summary %>
-        </textarea> 
+        </textarea>
     </div>
     <div class="form-group">
-        <h4><label for="">Career Info:</label></h4>
-        <input type="text" class="form-control" name="career_history" value="<%= @candidate.career_history %>">
+      <h4><label for="">Career Info:</label></h4>
+      <input type="text" class="form-control" name="career_history" value="<%= @candidate.career_history %>">
     </div>
     <div class="form-group">
-        <h4><label for="">Education:</label></h4>
-        <input type="text" class="form-control" name="education" value="<%= @candidate.education %>">
+      <h4><label for="">Education:</label></h4>
+      <input type="text" class="form-control" name="education" value="<%= @candidate.education %>">
     </div>
     <div class="form-group">
-        <h4><label for="">Skills:</label></h4>
-        <input type="text" class="form-control" name="skills" value="<%= @candidate.skills %>">
+      <h4><label for="">Skills:</label></h4>
+      <input type="text" class="form-control" name="skills" value="<%= @candidate.skills %>">
     </div>
     <button class="btn btn-outline-primary">Update</button>
-</form>
-
-
+  </form>
+</div>

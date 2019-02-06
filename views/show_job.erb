@@ -1,15 +1,22 @@
-<h1><%= @job.company_name%></h1>
-<h3>Job Title: <%= @job.job_title %></h3>
-<br>
-<h4>Company Info</h4>
-<p><%= @job.about_company %></p>
-<h4>Job Info</h4>
-<p><%= @job.about_job %></p>
-<h4>Location:</h4><p><%= @job.location %></p>
-
-<a href="/jobs/<%= @job.id %>/edit" class="btn btn-outline-primary">Edit</a>
-
-<form action="/jobs/<%= @job.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button class="btn btn-outline-danger">Delete</button>
-</form>
+<div class="jumbotron">
+  <h1><%= @job.company_name%></h1>
+  <h3>Job Title: <%= @job.job_title %></h3>
+  <h4>Company Info</h4>
+  <p><%= @job.about_company %></p>
+  <h4>Job Info</h4>
+  <p><%= @job.about_job %></p>
+  <h4>Location:</h4>
+  <p><%= @job.location %></p>
+  <%#<a href="/jobs/<%= @job.id %> <%#/edit" class="btn btn-outline-primary">Edit</a> %>
+  <% if current_role == "employer" %>
+    <a href="/jobs/<%= @job.id %>/edit" class="btn btn-outline-primary">Edit</a>
+  <% else %>
+    <a href="/jobs/<%= @job.id %>/edit" class="btn btn-outline-primary">Apply</a>
+  <% end %>
+  <% if current_role == "employer" %>
+    <form action="/jobs/<%= @job.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button class="btn btn-outline-danger">Delete</button>
+    </form>
+  <% end %>
+</div>

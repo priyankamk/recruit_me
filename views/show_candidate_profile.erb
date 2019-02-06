@@ -1,18 +1,17 @@
-<h1>Profile</h1>
-
-<h3><%= @candidate.name%></h3>
-<p>Personal Summary <%= @candidate.summary %></p>
-
-<h4>Career History</h4>
-<p><%= @candidate.career_history %></p>
-<h4>Education</h4>
-<p><%= @candidate.education %></p>
-<h4>Skills</h4>
-<p><%= @candidate.skills %></p>
-
-<a href="/candidates/<%= @candidate.id %>/edit" class="btn btn-outline-primary">Edit</a>
-
-<form action="/candidates/<%= @candidate.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button class="btn btn-outline-danger">Delete</button>
-</form>
+<div class="jumbotron">
+  <h1>Profile</h1>
+  <h3><%= @candidate.name%></h3>
+  <h4>Personal Summary </h4>
+  <p> <%= @candidate.summary %></p>
+  <h4>Career History</h4>
+  <p><%= @candidate.career_history %></p>
+  <h4>Education</h4>
+  <p><%= @candidate.education %></p>
+  <h4>Skills</h4>
+  <p><%= @candidate.skills %></p>
+  <a href="/candidates/<%= @candidate.id %>/edit" class="btn btn-outline-primary">Edit</a>
+  <form action="/candidates/<%= @candidate.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button class="btn btn-outline-danger">Delete</button>
+  </form>
+</div>

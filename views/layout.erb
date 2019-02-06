@@ -17,12 +17,16 @@
         <a href="/jobs/new">Post a Job</a>
         <a href="/candidates">All candidates</a>
       <% else %>
-        <a href="/home">Post Resume</a>
-        <a href="/candidates/new">Create Profile</a>
+        <% if current_user %>
+          <a href="/candidates/<%= current_user.id %>/edit">Update Profile</a>
+        <% else %>
+          <a href="/candidates/new">Create Profile</a>
+        <% end %>
       <% end %>
       <% if current_user.nil? %>
         <a href="/login">Login</a>
       <% else %>
+        <%= current_user.email %>(<%=current_role%>)
         <a href="/session">Logout</a>
       <% end %>
     </nav>

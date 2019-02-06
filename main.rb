@@ -45,7 +45,6 @@ get '/jobs/search' do
   erb :job_search
 end
 
-
 get '/about' do
   erb :about
 end
@@ -115,15 +114,20 @@ get '/candidates/:id' do
 end
 
 post '/candidates' do
-  @candidate = Candidate.create(name: params[:name], summary: params[:summary], career_history: params[:career_history], education: params[:education], skills: params[:skills])
+  @candidate = Candidate.create(name: params[:name], summary: params[:summary], career_history: params[:career_history], education: params[:education], skills: params[:skills], email: params[:email], password: params[:password])
   
-  @candidate.save
+  @candidate.save!
   redirect "/candidates/#{@candidate.id}"
 end
 
 get '/candidates/:id/edit' do
+  if params[:id].to_i == current_user.id
   @candidate = Candidate.find(params[:id])
   erb :edit_candidate
+  else
+    # forbidden
+    status 403
+  end
 end
 
 # show the updated candidate list
@@ -145,7 +149,7 @@ end
 
 get '/login' do
   redirect '/' if current_user
-  
+
   erb :login
 end
 
