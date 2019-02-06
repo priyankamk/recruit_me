@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron p-3 p-md-5 text-black rounded bg-light">
   <h1 class="display-4 font-italic">Job Search</h1>
   <form action="/jobs/search" method="get">
     <div class="form-group col-md-6">
@@ -17,8 +17,26 @@
   </form>
 </div>
 <%# &. is the safe navigation operator. Checks if variable is nil and then execute each block if not nil %>
-<% @jobs&.each do |job| %>
-  <br>
-  <h5> <a href="/jobs/<%= job.id %>"> <%= job.company_name + "-" + job.job_title %> </a> </h5>
-  <h5> <%= job.location %> </h5>
-<% end %>
+ <div class="jumbotron p-3 p-md-5 text-black rounded bg-light">
+  <h1 class="display-4 font-italic">Search List</h1>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Job Title</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs&.each do |job| %>
+        <tr>
+          <td>
+            <h5> <a href="/jobs/<%= job.id %>"> <%= job.company_name + "-" + job.job_title %> </a> </h5>
+          </td>
+          <td>
+            <h5> <%= job.location %> </h5>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
