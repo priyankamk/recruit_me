@@ -1,35 +1,37 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Recruit Me</title>
-  <%# <link rel='stylesheet' href='/stylesheets/main.css'> %>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-</head>
-<div class="container">
-  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="/">
-    <img src="https://recruitme.rumii.co/wp-content/uploads/2016/07/Recruit-Me-Final-Logo-1-1.png" width="150" height="30" alt="">
-    </a>
-    <a href="/jobs/new">Post a Job</a>
-    <a href="/about">About Us</a>
-    <a href="/jobs">Current Openings</a>
-    <a href="/jobs/new">Update Job Details</a>
-    <a href="/candidates">All candidates</a>
-    <a href="/home">Post Resume</a>
-    <a href="/candidates/new">Create Profile</a>
-  </nav>
-</div>
+  <head>
+    <meta charset="UTF-8">
+    <title>Recruit Me</title>
+    <%# <link rel='stylesheet' href='/stylesheets/main.css'> %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  </head>
+  <div class="container">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="/">
+        <img src="https://recruitme.rumii.co/wp-content/uploads/2016/07/Recruit-Me-Final-Logo-1-1.png" width="150" height="30" alt="">
+      </a>
+      <a href="/jobs">Current Openings</a>
+      <% if session[:employer_id] %>
+        <a href="/jobs/new">Post a Job</a>
+        <a href="/candidates">All candidates</a>
+      <% else %>
+        <a href="/home">Post Resume</a>
+        <a href="/candidates/new">Create Profile</a>
+      <% end %>
+      <% if session[:employer_id].nil? %>
+        <a href="/login">Login</a>
+      <% else %>
+        <a href="/about">About Us</a>
+        <a href="/session">Logout</a>
+      <% end %>
+    </nav>
+  </div>
   <body>
     <div class="container">
-    
-     <%# <h1>Recruit Me</h1> %>
-     
-  
+      <%# <h1>Recruit Me</h1> %>
       <%= yield %>
-    
     </div>
     <footer class="blockquote-footer text-center" >&copy; By Priyanka</footer>
-    
   </body>
 </html>

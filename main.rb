@@ -41,7 +41,11 @@ get '/about' do
 end
 
 get '/jobs/new' do
-  erb :new_job
+  if session[:employer_id].nil?
+    status 403 # block access if employer hasn't logged in.
+  else
+    erb :new_job
+  end
 end
 
 get '/jobs' do
@@ -152,7 +156,7 @@ post '/session' do
   end
 end
 
-delete '/session' do
+get '/session' do
   session[:employer_id] = nil
   redirect '/login'
 end
