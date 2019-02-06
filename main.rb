@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'active_record'
 require 'sinatra/reloader'
-require 'pry' 
+require 'pry'
 require 'pg'
 
 require_relative 'db_config'
@@ -95,11 +95,6 @@ delete '/jobs/:id' do
   redirect '/jobs'
 end
 
-# create a link tht opens the page for update resume.
-get '/home' do 
- erb :home
-end
-
 get '/candidates/new' do
   erb :new_candidate
 end
@@ -116,7 +111,7 @@ end
 
 post '/candidates' do
   @candidate = Candidate.create(name: params[:name], summary: params[:summary], career_history: params[:career_history], education: params[:education], skills: params[:skills])
-  
+
   @candidate.save
   redirect "/candidates/#{@candidate.id}"
 end
@@ -129,12 +124,12 @@ end
 # show the updated candidate list
 put '/candidates/:id' do
   @candidate = Candidate.find(params[:id])
-  
+
   @candidate.update(name: params[:name], summary: params[:summary], career_history: params[:career_history], education: params[:education], skills: params[:skills])
   @candidate.save
-  
+
   redirect "/candidates/#{params[:id]}"
-  
+
 end
 
 delete '/candidates/:id' do
@@ -145,7 +140,7 @@ end
 
 get '/login' do
   redirect '/' if current_user
-  
+
   erb :login
 end
 
@@ -161,7 +156,7 @@ post '/session' do
     # success
     # create the session - adding items to the session variable - it is hash
     # adding key value pair
-    
+
     session[:user_id] = user.id
     session[:role] = params[:role]
 
