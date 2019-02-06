@@ -1,24 +1,21 @@
-<div class="card-group">
+<div class="jumbotron">
   <div class="card">
-    <img src="https://recruitme.rumii.co/wp-content/uploads/2016/07/Recruit-Me-Final-Logo-1-1.png"  class="card-img-top" alt="...">
+    <h5 class="card-header bg-success">Employer Login</h5>
+    <div class="card-body">
+      <form action="/session" method="post">
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name= "password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-primary text-center">Login</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
- 
-<br>
-<h3>Employer Login:</h3>
-<br>
-
-<form action="/session" method="post">
-  <div class="form-group col-md-6">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group col-md-6">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" name= "password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="col-md-1">
-    <button class="btn btn-primary text-center">Login</button>
-  </div>
-</form>
