@@ -1,28 +1,24 @@
-<br>
-<h1>Job Search</h1>
-
-<form action="/jobsearch" method="get">
-
-  <label for="">What</label>
-  <input type="text" name="company_name" placeholder="Enter keywords" 
-  >
-
-  <label for="">Where</label>
-  <input type="text" name="location" placeholder="Enter city" >
-
-  <button>Find Jobs</button>
-</form>
-
-
-<% @jobs.each do |job| %>
-<br>
-  <h5> <a href="/jobs/<%= job.id %>"> <%= job.company_name %> </a> </h5>
-  <%# <h5> <a href="/"> <%= job.job_title %>  
-  <%# </a> </h5> %>
+<div class="jumbotron">
+  <h1>Job Search</h1>
+  <form action="/jobs/search" method="get">
+    <div class="form-group col-md-6">
+      <label for="">What</label>
+      <input type="text" name="company_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter keywords">
+      <small id="emailHelp" class="form-text text-muted">Ex: Envato,Zendesk</small>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="">Where</label>
+      <input type="text" name= "location" class="form-control" id="exampleInputPassword1" placeholder="Enter city">
+      <small id="emailHelp" class="form-text text-muted">Ex: Melbourne,Sydney</small>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-primary text-center">Find Jobs</button>
+    </div>
+  </form>
+</div>
+<%# &. is the safe navigation operator. Checks if variable is nil and then execute each block if not nil %>
+<% @jobs&.each do |job| %>
+  <br>
+  <h5> <a href="/jobs/<%= job.id %>"> <%= job.company_name + "-" + job.job_title %> </a> </h5>
   <h5> <%= job.location %> </h5>
 <% end %>
-
-<%# value="<%= @job.job_title %>
-<%# value="<%= @job.location %>
-
-

@@ -27,15 +27,18 @@ helpers do
 end
 
 get '/' do
-  erb :index
+  erb :job_search
 end
+
+get '/jobs/search' do
+  @jobs = Job.where(company_name: params[:company_name]).or(Job.where(location: params[:location]))
+  erb :job_search
+end
+
 
 get '/about' do
   erb :about
 end
-# get '/home' do
-#   erb :home
-# end
 
 get '/jobs/new' do
   erb :new_job
@@ -153,12 +156,3 @@ delete '/session' do
   session[:employer_id] = nil
   redirect '/login'
 end
-
-get '/jobsearch' do
-  @jobs = Job.where(company_name: params[:company_name]).or(Job.where(location: params[:location]))
-
-  # @job = Job.find(params[:id])
-  erb :job_search
-end
-
-# get '/filtersearch' 
