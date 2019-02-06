@@ -2,17 +2,21 @@
   <thead class="thead-dark"> 
     <tr>
       <th>Name</th>
-      <%# <th>Personal Summary</th> %>
       <th>Skills</th>
     </tr>
   </thead>
   <tbody>
     <% @candidates.each do |candidate| %>
     <tr>
+
       <td> 
-        <a href="/candidates/<%= candidate.id %>"><%= candidate.name %> </a>
+        <a href="/candidates/<%= candidate.id %>">
+        <%= candidate.name %> </a>
       </td>
-      <td> <%= candidate.skills%> </td>
+
+      <td> 
+        <%= candidate.skills%> 
+      </td>
       
     </tr>
     <% end %>

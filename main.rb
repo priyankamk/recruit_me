@@ -12,6 +12,9 @@ get '/' do
   erb :index
 end
 
+get '/about' do
+  erb :about
+end
 # get '/home' do
 #   erb :home
 # end
@@ -57,7 +60,6 @@ delete '/jobs/:id' do
   redirect '/jobs'
 end
 
-# #
 # create a link tht opens the page for update resume.
 get '/home' do 
  erb :home
@@ -68,7 +70,7 @@ get '/candidates/new' do
 end
 
 get '/candidates' do
-  @candidate = Candidate.all
+  @candidates = Candidate.all
   erb :list_candidate
 end
 
