@@ -14,7 +14,17 @@ enable :sessions # sinatra dealing with storing the session for you
 
 helpers do
   def current_user
-    User.find_by(id: session[:employer_id])
+    return nil if session[:user_id].nil?
+
+    if session[:role] == "candidate"
+      Candidate.find_by(id: session[:user_id])
+    elsif session[:role] == "employer"
+      Employer.find_by(id: session[:user_id])
+    end
+  end
+
+  def current_role
+    current_user && session[:role]
   end
 
   def logged_in? # predicate method boolean
@@ -138,14 +148,20 @@ get '/login' do
 end
 
 post '/session' do
+  user = if params[:role] == "employer"
+    Employer.find_by(email: params[:email])
+  else
+    Candidate.find_by(email: params[:email])
+  end
+
   # check email first
-  employer = Employer.find_by(email: params[:email])
-  if employer && employer.authenticate(params[:password])
+  if user && user.authenticate(params[:password])
     # success
     # create the session - adding items to the session variable - it is hash
     # adding key value pair
     
-    session[:employer_id] = employer.id
+    session[:user_id] = user.id
+    session[:role] = params[:role]
 
     # redirect to secure place
     redirect '/'

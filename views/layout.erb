@@ -11,18 +11,18 @@
       <a class="navbar-brand" href="/">
         <img src="https://recruitme.rumii.co/wp-content/uploads/2016/07/Recruit-Me-Final-Logo-1-1.png" width="150" height="30" alt="">
       </a>
+      <a href="/about">About Us</a>
       <a href="/jobs">Current Openings</a>
-      <% if session[:employer_id] %>
+      <% if current_role == "employer" %>
         <a href="/jobs/new">Post a Job</a>
         <a href="/candidates">All candidates</a>
       <% else %>
         <a href="/home">Post Resume</a>
         <a href="/candidates/new">Create Profile</a>
       <% end %>
-      <% if session[:employer_id].nil? %>
+      <% if !current_user %>
         <a href="/login">Login</a>
       <% else %>
-        <a href="/about">About Us</a>
         <a href="/session">Logout</a>
       <% end %>
     </nav>
