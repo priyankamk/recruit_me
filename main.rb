@@ -7,6 +7,7 @@ require 'pg'
 require_relative 'db_config'
 require_relative 'models/job'
 require_relative 'models/candidate'
+require_relative 'models/employer'
 
 # to enable random string - when the user loginIn
 enable :sessions # sinatra dealing with storing the session for you
@@ -140,7 +141,7 @@ post '/session' do
     session[:employer_id] = employer.id
 
     # redirect to secure place
-    redirect '/jobs'
+    redirect '/'
   else
     # kick them out
     # show the login form becus pw or email wrong
