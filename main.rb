@@ -51,7 +51,8 @@ get '/about' do
 end
 
 get '/jobs/new' do
-  if session[:employer_id].nil?
+  binding.pry
+  if current_role != "employer"
     status 403 # block access if employer hasn't logged in.
   else
     erb :new_job
