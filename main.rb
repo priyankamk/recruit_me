@@ -16,7 +16,8 @@ enable :sessions # sinatra dealing with storing the session for you
 helpers do
   def current_user
     return nil if session[:user_id].nil?
-
+# :role is created in loginin page as name :role 
+# role is like if else to check wheather the current user is a cadidate or a employer
     if session[:role] == "candidate"
       Candidate.find_by(id: session[:user_id])
     elsif session[:role] == "employer"
@@ -86,7 +87,6 @@ put '/jobs/:id' do
 @job.save
 
 redirect "/jobs/#{params[:id]}"
-
 end
 
 delete '/jobs/:id' do
@@ -139,7 +139,6 @@ put '/candidates/:id' do
   @candidate.save
   
   redirect "/candidates/#{params[:id]}"
-  
 end
 
 delete '/candidates/:id' do
@@ -150,7 +149,6 @@ end
 
 get '/login' do
   redirect '/' if current_user
-
   erb :login
 end
 
