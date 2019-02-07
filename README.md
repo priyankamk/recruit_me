@@ -17,7 +17,7 @@
 ---
 ### Programming Language & Technologies:
 
-Ruby, ORM - HTML, CSS, Bootstrap, sinatra.
+#### Ruby, ORM - HTML, CSS, Bootstrap, sinatra.
 ---
 ### Approach:
 
@@ -31,7 +31,7 @@ Ruby, ORM - HTML, CSS, Bootstrap, sinatra.
 ---
 ### Installation Instructions:
 
-gem install bundler
+### gem install bundler
 ```bundle install```
 ```bundle exec ruby main.rb```
 ---
