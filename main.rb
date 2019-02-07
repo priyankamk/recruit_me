@@ -24,7 +24,7 @@ helpers do
   end
 
   def current_role
-    current_user.class.to_s
+    current_user && session[:role]
   end
 
   def logged_in? # predicate method boolean
