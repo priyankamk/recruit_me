@@ -11,7 +11,7 @@
   <% if current_role == "employer" %>
     <a href="/jobs/<%= @job.id %>/edit" class="btn btn-outline-primary">Edit</a>
   <% else %>
-    <a href="/jobs/<%= @job.id %>/edit" class="btn btn-outline-primary">Apply</a>
+    <a href="/jobs/<%= @job.id %>" class="btn btn-outline-primary">Apply</a>
   <% end %>
   <% if current_role == "employer" %>
     <form action="/jobs/<%= @job.id %>" method="post">
