@@ -34,7 +34,7 @@ CREATE TABLE candidates
 CREATE TABLE applications
 (
     id SERIAL PRIMARY KEY,
-    employer_id INTEGER,
+    job_id INTEGER,
     candidate_id INTEGER
 );
 
