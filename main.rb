@@ -8,6 +8,7 @@ require_relative 'db_config'
 require_relative 'models/job'
 require_relative 'models/candidate'
 require_relative 'models/employer'
+require_relative 'models/application'
 
 # to enable random string - when the user loginIn
 enable :sessions # sinatra dealing with storing the session for you
