@@ -1,20 +1,19 @@
 <div class="jumbotron p-3 p-md-4 text-black rounded bg-light">
   <div class="row p-4 mb-4">
     <div class="card flex-md-row mb-4 p-2 shadow-sm h-md-250">
-      <form action="/jobs/search" method="get" class="card-body d-flex flex-column align-items-start">
+      <form action="/jobs/search" method="get" class="card-body d-flex flex-column align-items-start mb-3">
         <h2 class="mb-0">
           <a class="font-italic text-dark">Job Search </a>
         </h2>
         <br>
-        <div class="lead-mb-0">
+        <div class="form-group col-md-0">
           <h6 class="font-italic"> <label for="">What</label> </h6>
-          <input type="text" name="company_name"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter keywords">
+          <input type="text" name="company_name"  class="mb-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter keywords" required autofocus>
           <small id="emailHelp" class="form-text text-muted">Ex: Envato,Zendesk</small>
         </div>
-        <br>
-        <div>
+        <div class="form-group col-md-0">
           <h6 class="font-italic"> <label for="">Where</label> </h6>
-          <input type="text" name= "location" id="exampleInputPassword1" placeholder="Enter city">
+          <input type="text" name= "location" id="exampleInputPassword1" placeholder="Enter city" class="mb-2" required autofocus>
           <small id="emailHelp" class="form-text text-muted">Ex: Melbourne,Sydney</small>
         </div>
         <div>
@@ -27,7 +26,7 @@
 </div>
 <%# &. is the safe navigation operator. Checks if variable is nil and then execute each block if not nil %>
 <div class="jumbotron p-3 p-md-5 text-black rounded bg-light">
-  <h2 class="display-4 font-italic">Search List</h2>
+  <h2 class="display-5 font-italic">Search List</h2>
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
