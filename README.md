@@ -32,9 +32,15 @@
 ### Installation Instructions:
 
 ### gem install bundler
-```bundle install```
-
-```bundle exec ruby main.rb```
+```
+bundle install
+```
+```
+bundle exec ruby main.rb
+```
 ---
+## Deployment
+
+
 
 ## Visit my Job Portal here :
