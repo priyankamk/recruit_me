@@ -8,12 +8,12 @@
   <h4>Location:</h4>
   <p><%= @job.location %></p>
   <%#<a href="/jobs/<%= @job.id %> <%#/edit" class="btn btn-outline-primary">Edit</a> %>
-  <% if current_role == "employer" %>
+  <% if current_role == "Employer" %>
     <a href="/jobs/<%= @job.id %>/edit" class="btn btn-outline-primary">Edit</a>
   <% else %>
-    <a href="/jobs/<%= @job.id %>" class="btn btn-outline-primary">Apply</a>
+    <a href="/applications" class="btn btn-outline-primary">Apply</a>
   <% end %>
-  <% if current_role == "employer" %>
+  <% if current_role == "Employer" %>
     <form action="/jobs/<%= @job.id %>" method="post">
       <input type="hidden" name="_method" value="delete">
       <button class="btn btn-outline-danger">Delete</button>

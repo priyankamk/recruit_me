@@ -24,7 +24,7 @@ helpers do
   end
 
   def current_role
-    current_user && session[:role]
+    current_user.class.to_s
   end
 
   def logged_in? # predicate method boolean
@@ -165,14 +165,11 @@ post '/session' do
     # success
     # create the session - adding items to the session variable - it is hash
     # adding key value pair
-    
     session[:user_id] = user.id
     session[:role] = params[:role]
-
     # redirect to secure place
     redirect '/'
   else
-    # kick them out
     # show the login form becus pw or email wrong
     erb :login
   end
@@ -183,3 +180,12 @@ get '/session' do
   session[:role] = nil
   redirect '/login'
 end
+
+get '/applications' do
+  erb :application
+end
+
+# post '/applications/:id' do
+#   @applications = Application.all
+#   erb :list_applications
+# end
