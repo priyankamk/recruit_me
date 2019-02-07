@@ -6,4 +6,4 @@ options = {
 }
 
 ActiveRecord::Base.establish_connection( ENV['DATABASE_URL'] || options)
-# heroku ENV - environment variable - 'DATABASE_URL'
+# heroku ENV - environment variable - 'DATABASE_URL' used in heroku database

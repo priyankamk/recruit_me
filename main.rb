@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'active_record'
-require 'sinatra/reloader'
-require 'pry' 
+# require 'sinatra/reloader'
+# require 'pry' 
 require 'pg'
 
 require_relative 'db_config'
