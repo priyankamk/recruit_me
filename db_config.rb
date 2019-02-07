@@ -1,14 +1,9 @@
-# how?????
 # - setup config for activerecord
+# local environment
+options = {
+  adapter: 'postgresql',
+  database: 'recruitme'
+}
 
-options = if ENV['DATABASE_URL']
-  # heroku
-else
-  # local environment
-  {
-    adapter: 'postgresql',
-    database: 'recruitme'
-  }
-end
-
-ActiveRecord::Base.establish_connection(options)
+ActiveRecord::Base.establish_connection( ENV['DATABASE_URL'] || options)
+# heroku ENV - environment variable - 'DATABASE_URL'
