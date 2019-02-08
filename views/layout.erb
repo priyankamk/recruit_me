@@ -24,7 +24,7 @@
         <% end %>
       <% end %>
       <% if current_user.nil? %>
-        <a href="/login">Login</a>
+        <a href="/login">SignIn</a>
       <% else %>
         <%= current_user.email %>(<%=current_role%>)
         <a href="/session">Logout</a>
