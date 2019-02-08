@@ -40,4 +40,4 @@ bundle exec ruby main.rb
 ```
 ---
 
-Visit my Job Portal here : [RecuritMe](https://frozen-hamlet-65970.herokuapp.com/)
+## Visit my Job Portal here : [RecuritMe](https://frozen-hamlet-65970.herokuapp.com/)
