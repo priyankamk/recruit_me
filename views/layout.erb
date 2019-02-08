@@ -7,28 +7,61 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   </head>
   <div class="container">
-    <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
       <a class="navbar-brand" href="/">
         <img src="https://recruitme.rumii.co/wp-content/uploads/2016/07/Recruit-Me-Final-Logo-1-1.png" width="150" height="30" alt="">
       </a>
-      <a href="/about">About Us</a>
-      <a href="/jobs">Current Openings</a>
-      <% if current_role == "employer" %>
-        <a href="/jobs/new">Post a Job</a>
-        <a href="/candidates">All candidates</a>
-      <% else %>
-        <% if current_user %>
-          <a href="/candidates/<%= current_user.id %>/edit">Update Profile</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a href="/about">About Us</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a href="/jobs">Current Openings</a>
+          </li>
+        </ul>
+        <% if current_role == "employer" %>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a href="/jobs/new">Post a Job</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a href="/candidates">All candidates</a>
+            </li>
+          </ul>
         <% else %>
-          <a href="/candidates/new">Create Profile</a>
+          <% if current_user %>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a href="/candidates/<%= current_user.id %>/edit">Update Profile</a>
+              </li>
+            </ul>
+          <% else %>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a href="/candidates/new">Create Profile</a>
+              </li>
+            </ul>
+          <% end %>
         <% end %>
-      <% end %>
-      <% if current_user.nil? %>
-        <a href="/login">SignIn</a>
-      <% else %>
-        <%= current_user.email %>(<%= current_role %>)
-        <a href="/session">Logout</a>
-      <% end %>
+        <% if current_user.nil? %>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a href="/login">SignIn</a>
+            </li>
+          </ul>
+        <% else %>
+          <%= current_user.email %>(<%= current_role %>)
+          <a href="/session">Logout</a>
+        <% end %>
+      </div>
     </nav>
   </div>
   <body>
