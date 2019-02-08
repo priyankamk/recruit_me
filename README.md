@@ -9,7 +9,7 @@
 ---
 ### Description:
 
-* Has signIn functionality, with encrypted passwords & an authorization flow.
+* Has SignIn functionality, with encrypted passwords & an authorization flow.
 * Designed and developed a job portal using Ruby, Activerecord and Sinatra.
 * The application enabled job-seekers to register for viewing the jobs posted by employers as well as appl(work-in-process) to them. The employers can also register and post jobs. The application had the functionality to create, retrieve, update, and delete information. 
 * Enhanced database interaction using Activerecord based mapping with PSQL.
