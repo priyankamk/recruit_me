@@ -16,7 +16,7 @@
 ---
 ### Programming Language & Technologies:
 
-#### Ruby, ActiveRecord, PSQL - HTML, CSS, Bootstrap,   bcrypt.
+#### Ruby, ActiveRecord, PSQL - HTML, CSS, Bootstrap, bcrypt.
 ---
 ### Approach:
 
