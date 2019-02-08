@@ -39,9 +39,6 @@ bundle install
 bundle exec ruby main.rb
 ```
 ---
-### Deployment
-
-
 
 ## Visit my Job Portal here :
-(https://frozen-hamlet-65970.herokuapp.com/)
+* [RecuritMe](https://frozen-hamlet-65970.herokuapp.com/)
