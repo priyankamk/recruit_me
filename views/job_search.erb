@@ -24,7 +24,6 @@
     </div>
   </div>
 </div>
-<%# &. is the safe navigation operator. Checks if variable is nil and then execute each block if not nil %>
 <% if @jobs %>
   <div class="jumbotron p-3 p-md-5 text-black rounded bg-light">
     <h2 class="display-5 font-italic">Search List</h2>
@@ -36,6 +35,7 @@
         </tr>
       </thead>
       <tbody>
+        <%# &. is the safe navigation operator. Checks if variable is nil and then execute each block if not nil %>
         <% @jobs&.each do |job| %>
           <tr>
             <td>

@@ -26,7 +26,7 @@
       <% if current_user.nil? %>
         <a href="/login">SignIn</a>
       <% else %>
-        <%= current_user.email %>(<%=current_role%>)
+        <%= current_user.email %>(<%= current_role %>)
         <a href="/session">Logout</a>
       <% end %>
     </nav>
@@ -35,6 +35,6 @@
     <div class="container">
       <%= yield %>
     </div>
-    <footer class="blockquote-footer text-center" >&copy; By Priyanka</footer>
+    <footer class="blockquote-footer text-center" >&copy; Created by Priyanka</footer>
   </body>
 </html>
