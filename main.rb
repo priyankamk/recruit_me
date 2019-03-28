@@ -183,8 +183,3 @@ end
 get '/applications' do
   erb :application
 end
-
-# post '/applications/:id' do
-#   @applications = Application.all
-#   erb :list_applications
-# end

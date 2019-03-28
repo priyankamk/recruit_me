@@ -13,6 +13,14 @@
 * The application enabled job-seekers to register for viewing the jobs posted by employers as well as apply(work-in-process) to them. The employers can also register and post jobs. The application had the functionality to create, edit, update, and delete information. 
 * Enhanced database interaction using Activerecord based mapping with PSQL.
 * Built a user friendly and responsive website to enhance user experience.
+
+- To login as a Employer 
+- Email - hi@gaa.com
+- pw - apple
+
+- To login as a Candidate
+- Email - candidate@gaa.com
+- pw - apple
 ---
 ### Programming Language & Technologies:
 
