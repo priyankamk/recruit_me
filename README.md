@@ -15,12 +15,12 @@
 * Built a user friendly and responsive website to enhance user experience.
 
 - To login as a Employer 
-- Email - hi@gaa.com
-- pw - apple
+  Email - hi@gaa.com
+  pw - apple
 
 - To login as a Candidate
-- Email - candidate@gaa.com
-- pw - apple
+  Email - candidate@gaa.com
+  pw - apple
 ---
 ### Programming Language & Technologies:
 
